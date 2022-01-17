@@ -34,8 +34,8 @@ function App() {
       },
     ])
   );
-  const [searchTerm, setSearchTerm] = useState('');
   const [newTaskInput, setNewTaskInput] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [filterTerm, setFilterTerm] = useState('all');
 
   useEffect(() => {
@@ -47,7 +47,6 @@ function App() {
   }, [tasks]);
 
   const handleFilterSelect = (event) => {
-    console.log(event.target.value);
     setFilterTerm(event.target.value);
   };
 
@@ -78,8 +77,7 @@ function App() {
       (task) => task.id === event.currentTarget.parentNode.id
     );
     if (foundIndex !== -1) {
-      tasks.splice(foundIndex, 1);
-      setTasks([...tasks]);
+      setTasks([...tasks.splice(foundIndex, 1)]);
     }
   };
 
@@ -105,13 +103,22 @@ function App() {
     event.preventDefault();
   };
 
-  const searchTasks = () =>
-    tasks.filter((task) =>
-      task.task.toLowerCase().includes(searchTerm.toLowerCase())
+  const filterTasks = () => {
+    let filteredTasks = tasks.filter((task) =>
+      task.task.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
+    if (filterTerm === 'completed') {
+      filteredTasks = filteredTasks.filter((task) => task.isCompleted);
+    } else if (filterTerm === 'incomplete') {
+      filteredTasks = filteredTasks.filter((task) => !task.isCompleted);
+    } else if (filterTerm === 'favorites') {
+      filteredTasks = filteredTasks.filter((task) => task.isFavorite);
+    }
+    return filteredTasks;
+  };
 
   const renderTasks = () =>
-    searchTasks().map((task) => (
+    filterTasks().map((task) => (
       <li
         key={task.id}
         id={task.id}
@@ -142,13 +149,15 @@ function App() {
       </li>
     ));
 
-  const totalOfTasks = searchTasks().length;
+  const totalOfTasks = filterTasks().length;
 
-  const completedTasks = searchTasks().filter(
+  const completedTasks = filterTasks().filter(
     (task) => task.isCompleted
   ).length;
 
   const incompleteTasks = totalOfTasks - completedTasks;
+
+  const favoriteTasks = filterTasks().filter((task) => task.isFavorite).length;
 
   return (
     // HTML ✨
@@ -215,15 +224,17 @@ function App() {
 
         <ul className="task-info__list">
           <li className="task-info__item">
-            Tareas: <div className="task-info__result">{totalOfTasks}</div>
+            <div className="task-info__result">{totalOfTasks}</div>tareas
           </li>
           <li className="task-info__item">
-            Completadas:{' '}
             <div className="task-info__result">{completedTasks}</div>
+            completadas
           </li>
           <li className="task-info__item">
-            Pendientes:{' '}
-            <div className="task-info__result">{incompleteTasks}</div>
+            <div className="task-info__result">{incompleteTasks}</div>pendientes
+          </li>
+          <li className="task-info__item">
+            <div className="task-info__result">{favoriteTasks}</div>destacadas
           </li>
         </ul>
       </main>
@@ -237,7 +248,7 @@ function App() {
               href="https://www.instagram.com/maranhaknits"
               title="Instagram"
             >
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </a>
           </li>
 
@@ -247,7 +258,7 @@ function App() {
               href="https://www.linkedin.com/in/mararochafernandez"
               title="LinkedIn"
             >
-              <i class="fab fa-linkedin-in"></i>
+              <i className="fab fa-linkedin-in"></i>
             </a>
           </li>
 
@@ -257,7 +268,7 @@ function App() {
               href="https://github.com/mararochafernandez"
               title="GitHub"
             >
-              <i class="fab fa-github-alt"></i>
+              <i className="fab fa-github-alt"></i>
             </a>
           </li>
 
@@ -267,7 +278,7 @@ function App() {
               href="https://twitter.com/maranhaknits"
               title="Twitter"
             >
-              <i class="fab fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
             </a>
           </li>
         </ul>
