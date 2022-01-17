@@ -1,0 +1,51 @@
+body {
+  font-family: $font-main;
+  font-size: 10px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin: 20px;
+  @include tablet {
+    width: 688px;
+    margin: 40px auto;
+  }
+  @include desktop {
+    width: 1080px;
+    margin: 60px auto;
+  }
+}
+
+.main {
+  min-height: calc(100vh - 330px);
+  @include tablet {
+    min-height: calc(100vh - 299px);
+  }
+  @include desktop {
+    min-height: calc(100vh - 342px);
+  }
+}
+
+.task-info {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: 10px;
+    font-size: 1.6em;
+    color: $grey-dark;
+    @include tablet {
+      flex-direction: row;
+      column-gap: 40px;
+    }
+  }
+  &__item {
+    display: flex;
+    column-gap: 10px;
+  }
+  &__result {
+    font-weight: bold;
+  }
+}

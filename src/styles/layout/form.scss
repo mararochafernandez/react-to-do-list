@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  font-size: 1.6em;
+  color: $grey-dark;
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 20px;
+    border: none;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tablet {
+      justify-content: flex-start;
+    }
+    &--large {
+      flex-direction: column;
+      row-gap: 10px;
+      @include tablet {
+        flex-direction: row;
+        column-gap: 10px;
+        width: 100%;
+      }
+    }
+  }
+  &__input {
+    width: 75%;
+    font-size: inherit;
+    color: inherit;
+    background-color: $white;
+    border: 1px solid $grey-light;
+    border-radius: 4px;
+    padding: 7px;
+    margin-left: 10px;
+    &--large {
+      width: 100%;
+      margin-left: 0;
+      @include tablet {
+        width: calc(100% - 180px);
+      }
+    }
+  }
+  &__button {
+    width: 100%;
+    font-size: inherit;
+    color: $white;
+    background-color: $color-main;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    @include tablet {
+      width: 180px;
+    }
+    &:hover {
+      background-color: $color-secondary;
+    }
+  }
+}

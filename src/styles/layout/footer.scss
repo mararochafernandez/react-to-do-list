@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 20px;
+  font-size: 1.6em;
+  color: $grey;
+  border-top: 1px solid $grey-light;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  @include tablet {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+  &__menu {
+    display: flex;
+    column-gap: 10px;
+    font-size: 1.2em;
+  }
+  &__link {
+    color: $grey;
+    &:hover {
+      color: $color-main;
+    }
+  }
+}
