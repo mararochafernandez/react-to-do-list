@@ -225,17 +225,20 @@ function App() {
 
         <ul className="task-info__list">
           <li className="task-info__item">
-            <div className="task-info__result">{totalOfTasks}</div>tareas
+            <div className="task-info__result">{totalOfTasks}</div>
+            {`${totalOfTasks === 1 ? 'tarea' : 'tareas'}`}
           </li>
           <li className="task-info__item">
             <div className="task-info__result">{completedTasks}</div>
-            completadas
+            {`${completedTasks === 1 ? 'completada' : 'completadas'}`}
           </li>
           <li className="task-info__item">
-            <div className="task-info__result">{incompleteTasks}</div>pendientes
+            <div className="task-info__result">{incompleteTasks}</div>
+            {`${incompleteTasks === 1 ? 'pendiente' : 'pendientes'}`}
           </li>
           <li className="task-info__item">
-            <div className="task-info__result">{favoriteTasks}</div>destacadas
+            <div className="task-info__result">{favoriteTasks}</div>
+            {`${favoriteTasks === 1 ? 'destacada' : 'destacadas'}`}
           </li>
         </ul>
       </main>
