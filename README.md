@@ -18,6 +18,5 @@ Ejercicio **To Do List** completo y mejorado.
 
 - [x] SPA con React
 - [x] Dependencias NPM: node-sass y node-uuid
-- [x] Servicio para almacenamiento local
-- [ ] Servicio para api local
+- [x] Almacenamiento local
 - [ ] Responsive Web Design

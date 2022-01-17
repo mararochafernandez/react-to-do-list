@@ -2,38 +2,12 @@ import '../styles/App.scss';
 import { useEffect, useState } from 'react';
 import localStorage from '../services/localstorage';
 import { v4 as uuid } from 'uuid';
+import data from '../data/tasks';
 
 function App() {
   /* Let's do magic! 🦄🦄🦄 */
 
-  const [tasks, setTasks] = useState(
-    localStorage.get('tasks', [
-      {
-        id: uuid(),
-        task: 'Comprar harina, jamón y pan rallado',
-        isCompleted: true,
-        isFavorite: false,
-      },
-      {
-        id: uuid(),
-        task: 'Hacer croquetas ricas',
-        isCompleted: true,
-        isFavorite: false,
-      },
-      {
-        id: uuid(),
-        task: 'Ir a la puerta de un gimnasio',
-        isCompleted: false,
-        isFavorite: false,
-      },
-      {
-        id: uuid(),
-        task: 'Comerme las croquetas mirando a la gente que entra en el gimnasio',
-        isCompleted: false,
-        isFavorite: false,
-      },
-    ])
-  );
+  const [tasks, setTasks] = useState(localStorage.get('tasks', data));
   const [newTaskInput, setNewTaskInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [filterTerm, setFilterTerm] = useState('all');
@@ -244,9 +218,9 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; 2022 Mara Rocha</p>
+        <p className="footer__copy">&copy; 2022 Mara Rocha</p>
         <ul className="footer__menu">
-          <li>
+          <li className="footer__item">
             <a
               className="footer__link"
               href="https://www.instagram.com/maranhaknits"
@@ -256,7 +230,7 @@ function App() {
             </a>
           </li>
 
-          <li>
+          <li className="footer__item">
             <a
               className="footer__link"
               href="https://www.linkedin.com/in/mararochafernandez"
@@ -266,7 +240,7 @@ function App() {
             </a>
           </li>
 
-          <li>
+          <li className="footer__item">
             <a
               className="footer__link"
               href="https://github.com/mararochafernandez"
@@ -276,7 +250,7 @@ function App() {
             </a>
           </li>
 
-          <li>
+          <li className="footer__item">
             <a
               className="footer__link"
               href="https://twitter.com/maranhaknits"
