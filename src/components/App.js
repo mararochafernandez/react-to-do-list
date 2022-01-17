@@ -76,8 +76,9 @@ function App() {
     const foundIndex = tasks.findIndex(
       (task) => task.id === event.currentTarget.parentNode.id
     );
+    tasks.splice(foundIndex, 1);
     if (foundIndex !== -1) {
-      setTasks([...tasks.splice(foundIndex, 1)]);
+      setTasks([...tasks]);
     }
   };
 
