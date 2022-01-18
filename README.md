@@ -20,3 +20,7 @@ Ejercicio **To Do List** completo y mejorado.
 - [x] Dependencias NPM: `node-sass` y `node-uuid`
 - [x] Almacenamiento local
 - [x] Responsive Web Design
+
+---
+
+Happy coding!
