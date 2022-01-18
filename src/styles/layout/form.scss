@@ -63,6 +63,7 @@
     padding: 8px;
     margin-top: 10px;
     cursor: pointer;
+    -webkit-appearance: none;
     @include tablet {
       width: 180px;
       margin-top: 0;

@@ -1,6 +1,6 @@
 Módulo 3 - React
 
-# Lista de tareas
+# Lista de tareas ⭐
 
 Ejercicio **To Do List** completo y mejorado.
 
@@ -17,6 +17,6 @@ Ejercicio **To Do List** completo y mejorado.
 ## Características técnicas
 
 - [x] SPA con React
-- [x] Dependencias NPM: node-sass y node-uuid
+- [x] Dependencias NPM: `node-sass` y `node-uuid`
 - [x] Almacenamiento local
-- [ ] Responsive Web Design
+- [x] Responsive Web Design
