@@ -4,6 +4,8 @@ Módulo 3 - React
 
 Ejercicio **To Do List** completo y mejorado.
 
+**URL del ejercicio: [Lista de tareas](https://mararochafernandez.github.io/react-to-do-list/)**
+
 ## Funcionalidades del proyecto
 
 - [x] Buscar tareas
@@ -23,4 +25,4 @@ Ejercicio **To Do List** completo y mejorado.
 
 ---
 
-Happy coding!
+_Happy coding!_
